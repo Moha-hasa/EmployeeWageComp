@@ -11,16 +11,27 @@ public class EmployeeWageComp {
 		int total_working_hr = 0;
 		int total_working_days = 1;
 		int employee_type;
-		final int WAGE_PER_HR = 20; 
+		int wage_per_hr; 
 		final int FULL_TIME_HR = 8;
 		final int PART_TIME_HR = 4;
-		final int WORKING_DAYS = 20;
+		int working_days;
+		int working_hr_month;
+		
+//		public void companyInput() {
+//		Scanner scanner = new Scanner(System.in);
+//		System.out.println("Enter the Wage Per Hours:");
+//		wage_per_hr = scanner.nextInt();
+//		System.out.println("Enter the Working Days in Month:");
+//		Working_days = scanner.nextInt();
+//		System.out.println("Enter the Working Hours per MOnth:");
+//		working_hr_month = scanner.nextInt();
+//	}
 		
 	public void EmployeeWageCalc() {
 		
 		System.out.println("Welcome to Employee Wage computation program");
 		
-		while(total_working_hr <= 100 && total_working_days <= 20) {
+		while(total_working_hr <= working_hr_month && total_working_days <= working_days) {
 			
 			System.out.println("Day="+total_working_days);
 			Random random = new Random();
@@ -40,13 +51,13 @@ public class EmployeeWageComp {
 				switch(employee_type) {
 				case 0:
 					System.out.println("Employee is part time");
-					dailywage = WAGE_PER_HR * PART_TIME_HR;
+					dailywage = wage_per_hr * PART_TIME_HR;
 					total_working_hr += PART_TIME_HR;
 				break;
 				
 				case 1:
 					System.out.println("Employee is full time");
-					dailywage = WAGE_PER_HR * FULL_TIME_HR;
+					dailywage = wage_per_hr * FULL_TIME_HR;
 					total_working_hr += FULL_TIME_HR;
 				break;
 			}
@@ -62,9 +73,18 @@ public class EmployeeWageComp {
 			System.out.println("Total monthly wage="+total_wage);
 		}
 	
+			public EmployeeWageComp(int wage_per_hr, int working_days, int working_hr_month) {
+				this.wage_per_hr = wage_per_hr;
+				this.working_days = working_days;
+				this.working_hr_month = working_hr_month;
+			}
+	
 			public static void main(String args[]) {
-				EmployeeWageComp employeewagecomp = new EmployeeWageComp ();
-				employeewagecomp.EmployeeWageCalc();
+
+				EmployeeWageComp employeeWageComp = new EmployeeWageComp (20,19,50);
+				employeeWageComp.EmployeeWageCalc();
+				EmployeeWageComp employeeWageComp2 = new EmployeeWageComp (20,20,50);
+				employeeWageComp2.EmployeeWageCalc();
 	}
 	
 
