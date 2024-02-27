@@ -18,8 +18,9 @@ public class EmployeeWageComp {
 		
 		System.out.println("Welcome to Employee Wage computation program");
 		
-		for(int i=0; i<=WORKING_DAYS; i++) {
-			System.out.println("Day="+i);
+		while(total_working_hr <= 100 && total_working_days <= 20) {
+			
+			System.out.println("Day="+total_working_days);
 			Random random = new Random();
 			attendance = random.nextInt(9) % 2; 
 		
@@ -38,19 +39,22 @@ public class EmployeeWageComp {
 				case 0:
 					System.out.println("Employee is part time");
 					dailywage = WAGE_PER_HR * PART_TIME_HR;
+					total_working_hr += PART_TIME_HR;
 				break;
 				
 				case 1:
 					System.out.println("Employee is full time");
 					dailywage = WAGE_PER_HR * FULL_TIME_HR;
+					total_working_hr += FULL_TIME_HR;
 				break;
 			}
 				total_wage += dailywage;
 				System.out.println("Employee wage = "+dailywage);
 				break;
 			}
-		
-				System.out.println("*********************");
+				System.out.println("Total Working Hr="+total_working_hr);
+				System.out.println("-------------------------------");
+				total_working_days++;
 		}		
 		
 			System.out.println("Total monthly wage="+total_wage);
