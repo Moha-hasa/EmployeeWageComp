@@ -8,9 +8,10 @@ public class EmployeeWageComp {
 		int attendance;
 		int dailywage = 0;
 		int total_wage = 0;
+		int total_working_hr = 0;
+		int total_working_days = 1;
 		int employee_type;
-		final int WAGE_PER_HR = 20;
-		final int FULL_DAY_HR = 8; 
+		final int WAGE_PER_HR = 20; 
 		final int FULL_TIME_HR = 8;
 		final int PART_TIME_HR = 4;
 		final int WORKING_DAYS = 20;
@@ -18,6 +19,7 @@ public class EmployeeWageComp {
 		System.out.println("Welcome to Employee Wage computation program");
 		
 		for(int i=0; i<=WORKING_DAYS; i++) {
+			System.out.println("Day="+i);
 			Random random = new Random();
 			attendance = random.nextInt(9) % 2; 
 		
@@ -40,7 +42,7 @@ public class EmployeeWageComp {
 				
 				case 1:
 					System.out.println("Employee is full time");
-					dailywage = WAGE_PER_HR * FULL_DAY_HR;
+					dailywage = WAGE_PER_HR * FULL_TIME_HR;
 				break;
 			}
 				total_wage += dailywage;
@@ -48,7 +50,7 @@ public class EmployeeWageComp {
 				break;
 			}
 		
-				System.out.println("*************************");
+				System.out.println("*********************");
 		}		
 		
 			System.out.println("Total monthly wage="+total_wage);
